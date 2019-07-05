@@ -1,1 +1,1 @@
-# ErlangPractice
+# Erlang practice
