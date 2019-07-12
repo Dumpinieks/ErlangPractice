@@ -1,5 +1,5 @@
 -module(bs04).
--export([decode/2, decode/3, decode/4, format/2]).
+-export([decode/2]).
 
 decode(Bin = <<"[", _/binary>>, proplist) ->
     [<<>>, Result] = decode(Bin, list),
@@ -89,13 +89,3 @@ decode(<<",", Rest/binary>>, Properties, proplist, properties) ->
 decode(Bin = <<"}", _/binary>>, Properties, proplist, properties) ->
     [Bin, Properties].
 
-
-format([Left, Right], proplist) ->
-    {Left, Right};
-format([Left, Right], map) ->
-    #{Left => Right}.
-
-put(Structure, Element, proplist) ->
-    [Element | Structure];
-put(Structure, Element, map) ->
-    maps:merge(Element, Structure).
