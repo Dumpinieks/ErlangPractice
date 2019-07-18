@@ -2,7 +2,7 @@
 -export([words/1]).
 
 words(Bin) ->
-    words(Bin, []).
+    lists:reverse(words(Bin, [])).
 
 
 words(<<" ", Rest/binary>>, Acc) ->

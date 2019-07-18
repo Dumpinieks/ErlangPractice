@@ -1,1 +1,4 @@
 *.beam
+ebin
+.erlang.mk
+erlang_practice.d

@@ -4,10 +4,15 @@
 pack([]) -> 
 	[];
 pack(List = [Head|_]) ->
-	[Rest | Group] = group(Head, List),
+	[Rest, Group] = group(Head, List),
 	[Group | pack(Rest)].
 
-group(Element, [Element | Tail]) ->
-	[Element | group(Element, Tail)];
-group(_, Rest) ->
-	[Rest].
+group(Element, List) ->
+	group(Element, List, []).
+
+group(Element, [Element | Rest], Group) ->
+	group(Element, Rest, [Element | Group]);
+group(_, Rest, Group) ->
+	[Rest, Group].
+
+
